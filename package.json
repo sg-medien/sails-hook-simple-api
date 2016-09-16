@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-simple-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Sails hook which extends the features of the sails blueprint api. Inspired by http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api",
   "author": {
 
@@ -26,8 +26,11 @@
   "homepage": "https://github.com/sg-medien/sails-hook-simple-api",
   "keywords": [
     "sails",
+    "sails.js",
+    "sails-hook",
     "rest",
     "api",
+    "hook",
     "blueprint",
     "responses",
     "waterline"
