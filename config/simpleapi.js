@@ -264,15 +264,6 @@ module.exports.simpleapi = {
 
   /****************************************************************************
   *                                                                           *
-  * The name of the sort parameter to receive a favorite sorting              *
-  * by an user.                                                               *
-  *                                                                           *
-  ****************************************************************************/
-
-  // parameterNameSort : 'sort',
-
-  /****************************************************************************
-  *                                                                           *
   * The default sort of records to show in the response from a `find` or      *
   * a `findOne` action. Pass the name(s) of (an) attribute(s) to get an       *
   * individual sorting of the records. The default direction for each sort    *
@@ -290,12 +281,12 @@ module.exports.simpleapi = {
 
   /****************************************************************************
   *                                                                           *
-  * The name of the fields parameter to receive a favorite choice of the      *
-  * returned fields by an user.                                               *
+  * The name of the sort parameter to receive a favorite sorting              *
+  * by an user.                                                               *
   *                                                                           *
   ****************************************************************************/
 
-  // parameterNameFields : 'fields',
+  // parameterNameSort : 'sort',
 
   /****************************************************************************
   *                                                                           *
@@ -312,5 +303,15 @@ module.exports.simpleapi = {
   *                                                                           *
   ****************************************************************************/
 
-  // defaultFields : false
+  // defaultFields : false,
+
+  /****************************************************************************
+  *                                                                           *
+  * The name of the fields parameter to receive a favorite choice of the      *
+  * returned fields by an user.                                               *
+  *                                                                           *
+  ****************************************************************************/
+
+  // parameterNameFields : 'fields'
+
 };
