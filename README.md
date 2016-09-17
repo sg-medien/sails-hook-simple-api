@@ -2,12 +2,8 @@
 <a href="http://sailsjs.org"><img alt="Sails.js logo" src="http://balderdashy.github.io/sails/images/logo.png" title="Sails.js"/></a><br><br>sails-hook-simple-api
 </h1>
 
----
-
 [![npm version](https://badge.fury.io/js/sails-hook-simple-api.svg)](https://badge.fury.io/js/sails-hook-simple-api)
 [![Dependencies](https://david-dm.org/sg-medien/sails-hook-simple-api.svg)](https://david-dm.org/sg-medien/sails-hook-simple-api)
-
----
 
 *Needs at least Sails version 0.12.0 to work.*
 
@@ -15,7 +11,10 @@
 
 ### Installation
 
-`npm install sails-hook-simple-api --save`
+```sh
+# Get the latest release of sails-hook-simple-api
+$ npm install sails-hook-simple-api --save
+```
 
 ### Configuration
 
