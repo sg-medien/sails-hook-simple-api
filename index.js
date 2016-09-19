@@ -326,3 +326,5 @@ module.exports = function apiExtended(sails) {
     return next();
   }
 };
+
+module.exports.simpleApi = apiUtil;
