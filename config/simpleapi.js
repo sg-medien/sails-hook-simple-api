@@ -313,5 +313,4 @@ module.exports.simpleapi = {
   ****************************************************************************/
 
   // parameterNameFields : 'fields'
-
 };

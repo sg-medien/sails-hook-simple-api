@@ -109,7 +109,7 @@ module.exports = function customJson(obj){
 
   // Create body
   var
-    body = JSON.stringify(obj, replacer, spaces);
+    body = !req.isSocket ? JSON.stringify(obj, replacer, spaces) : obj;
 
   // Set charset and content-type
   res.charset = res.charset || 'utf-8';
