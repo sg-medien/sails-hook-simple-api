@@ -77,28 +77,48 @@ module.exports = function customJson(obj){
     // Add response data to envelope json
     objTmp[apiUtil.getEnvelopeResponseKey()] = _.clone(obj);
 
-    // Add link and x-total-count headers to envelope json (if set)
-    if (_.isObject(res._headers) && res._headers.link && res._headers['x-total-count']){
+    // Add some header to envelope json (if set)
+    if (_.isObject(res._headers)){
 
-      objTmp.count = res._headers['x-total-count'];
+      // Add pagination headers to envelope json (if set)
+      if (res._headers['x-total-count']){
 
-      var
-        linkHeaders = res._headers.link.split(',\n');
+        objTmp.totalCount = res._headers['x-total-count'];
+      }
+      if (res._headers['x-limit']){
 
-      if (linkHeaders.length){
+        objTmp.limit = res._headers['x-limit'];
+      }
+      if (res._headers['x-current-page']){
 
-        objTmp.links = {};
-        for (var index in linkHeaders) {
+        objTmp.currentPage = res._headers['x-current-page'];
+      }
+      if (res._headers['x-total-pages']){
 
-          var
-            linkHeaderParts = linkHeaders[index].split(';'),
-            link = _.trim(_.trim(linkHeaderParts[0]).replace(/^<(.+?)>$/, '$1')),
-            rel = !_.isUndefined(linkHeaderParts[1]) ? _.trim(linkHeaderParts[1]) : index;
+        objTmp.totalPages = res._headers['x-total-pages'];
+      }
 
-          // Clean rel
-          rel = _.trim(rel.replace(/^rel=(\"|\')?(.+?)(\"|\')?$/i, '$2')).toLowerCase();
+      // Add link headers to envelope json (if set)
+      if (res._headers.link){
 
-          objTmp.links[rel] = link
+        var
+          linkHeaders = res._headers.link.split(',\n');
+
+        if (linkHeaders.length){
+
+          objTmp.links = {};
+          for (var index in linkHeaders) {
+
+            var
+              linkHeaderParts = linkHeaders[index].split(';'),
+              link = _.trim(_.trim(linkHeaderParts[0]).replace(/^<(.+?)>$/, '$1')),
+              rel = !_.isUndefined(linkHeaderParts[1]) ? _.trim(linkHeaderParts[1]) : index;
+
+            // Clean rel
+            rel = _.trim(rel.replace(/^rel=(\"|\')?(.+?)(\"|\')?$/i, '$2')).toLowerCase();
+
+            objTmp.links[rel] = link
+          }
         }
       }
     }
