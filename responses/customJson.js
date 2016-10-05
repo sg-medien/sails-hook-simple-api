@@ -83,19 +83,19 @@ module.exports = function customJson(obj){
       // Add pagination headers to envelope json (if set)
       if (res._headers['x-total-count']){
 
-        objTmp.totalCount = res._headers['x-total-count'];
+        objTmp.totalCount = parseInt(res._headers['x-total-count']);
       }
       if (res._headers['x-limit']){
 
-        objTmp.limit = res._headers['x-limit'];
+        objTmp.limit = parseInt(res._headers['x-limit']);
       }
       if (res._headers['x-current-page']){
 
-        objTmp.currentPage = res._headers['x-current-page'];
+        objTmp.currentPage = parseInt(res._headers['x-current-page']);
       }
       if (res._headers['x-total-pages']){
 
-        objTmp.totalPages = res._headers['x-total-pages'];
+        objTmp.totalPages = parseInt(res._headers['x-total-pages']);
       }
 
       // Add link headers to envelope json (if set)
