@@ -68,8 +68,11 @@ module.exports = function findRecords(req, res) {
         headerLinkArr = [],
         headerLink = '';
 
-      // Add x-total-count header
-      res.set('X-Total-Count', matchingRecordsCount);
+      // Add pagination headers
+      res.set('x-total-count', matchingRecordsCount);
+      res.set('x-limit', apiUtil.parseLimit(req));
+      res.set('x-current-page', apiUtil.parsePage(req));
+      res.set('x-total-pages', Math.ceil(matchingRecordsCount/apiUtil.parseLimit(req)));
 
       // Build link header
       for (var rel in paginationUrls) {
@@ -81,7 +84,7 @@ module.exports = function findRecords(req, res) {
       // Add link header if not empty
       if (headerLink != '') {
 
-        res.set('Link', headerLink);
+        res.set('link', headerLink);
       }
 
       // Only `.watch()` for new instances of the model if
