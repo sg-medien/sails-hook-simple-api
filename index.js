@@ -4,7 +4,7 @@
 var
   _ = require('lodash'),
   path = require('path'),
-  buildDictionary = require('sails-build-dictionary'),
+  includeAll = require('include-all'),
   apiUtil = require('./lib/apiUtil');
 
 module.exports = function apiExtended(sails) {
@@ -129,7 +129,7 @@ module.exports = function apiExtended(sails) {
    */
   function injectCustomBlueprints(cb) {
 
-    buildDictionary.optional({
+    includeAll.optional({
 
       dirname: path.resolve(__dirname, 'blueprints'),
       filter: new RegExp('(.+)\\.(' + sails.config.moduleloader.sourceExt.join('|') + ')$'),
@@ -189,7 +189,7 @@ module.exports = function apiExtended(sails) {
    */
   function injectCustomResponses(cb) {
 
-    buildDictionary.optional({
+    includeAll.optional({
 
       dirname: path.resolve(__dirname, 'responses'),
       filter: new RegExp('(.+)\\.(' + sails.config.moduleloader.sourceExt.join('|') + ')$'),
