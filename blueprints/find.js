@@ -79,7 +79,7 @@ module.exports = function findRecords(req, res) {
 
         headerLinkArr.push('<' + paginationUrls[rel] + '>; rel="' + rel + '"');
       }
-      headerLink = headerLinkArr.join(',\n');
+      headerLink = headerLinkArr.join(',');
 
       // Add link header if not empty
       if (headerLink != '') {
