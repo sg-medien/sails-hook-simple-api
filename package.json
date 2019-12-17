@@ -10,7 +10,7 @@
   "contributors": [],
   "dependencies": {
     "include-all": "^1.0.6",
-    "lodash": "3.10.1",
+    "lodash": "4.17.15",
     "methods": "^1.1.2",
     "moment": "^2.15.1",
     "sort-object": "^3.0.2"
